@@ -32,6 +32,35 @@ aqi_service = AQIService()
 
 
 @router.get(
+    "",
+    response_model=AirQualityResponse,
+    include_in_schema=False,
+)
+@limiter.limit("30/minute")
+async def get_air_quality_by_query(
+    request: Request,
+    city: str = Query(..., min_length=1, max_length=100, description="City name"),
+) -> AirQualityResponse:
+    """Query parameter alias for get_air_quality_by_city."""
+    return await get_air_quality_by_city(request, city)
+
+
+@router.get(
+    "/geo",
+    response_model=AirQualityResponse,
+    include_in_schema=False,
+)
+@limiter.limit("30/minute")
+async def get_air_quality_by_geo_query(
+    request: Request,
+    lat: float = Query(..., ge=-90.0, le=90.0),
+    lng: float = Query(..., ge=-180.0, le=180.0),
+) -> AirQualityResponse:
+    """Query parameter alias for get_air_quality_by_geo."""
+    return await get_air_quality_by_geo(request, lat, lng)
+
+
+@router.get(
     "/{city}",
     response_model=AirQualityResponse,
     summary="Get air quality by city name",
@@ -147,3 +176,17 @@ async def search_stations(
     except AQIServiceError as exc:
         logger.error("Station search error for '%s': %s", keyword, exc.message)
         raise HTTPException(status_code=exc.status_code, detail=exc.message) from exc
+
+
+@router.get(
+    "/search",
+    response_model=list[SearchResult],
+    include_in_schema=False,
+)
+@limiter.limit("30/minute")
+async def search_stations_query(
+    request: Request,
+    q: str = Query(..., min_length=1, max_length=100),
+) -> list[SearchResult]:
+    """Query parameter alias for search_stations."""
+    return await search_stations(request, q)

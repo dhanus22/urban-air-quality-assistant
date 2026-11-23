@@ -260,3 +260,11 @@ async def calculate_impact(request: Request, body: ImpactRequest) -> ImpactRespo
             status_code=500,
             detail="Error processing impact analysis results.",
         ) from exc
+
+
+# Direct /api/v1 aliases for seamless frontend compatibility
+direct_router = APIRouter(prefix="/api/v1", include_in_schema=False)
+direct_router.add_api_route("/chat", chat, methods=["POST"], response_model=ChatResponse)
+direct_router.add_api_route("/routines", generate_routines, methods=["POST"], response_model=RoutineResponse)
+direct_router.add_api_route("/indoor-hacks", get_indoor_hacks, methods=["POST"], response_model=IndoorHackResponse)
+direct_router.add_api_route("/impact", calculate_impact, methods=["POST"], response_model=ImpactResponse)

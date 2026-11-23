@@ -71,12 +71,14 @@ app = FastAPI(
 # --- Middleware Stack ---
 
 # 1. CORS — must be added before other middleware
+is_wildcard_origin = "*" in settings.allowed_origins_list
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.allowed_origins_list,
-    allow_credentials=True,
+    allow_credentials=not is_wildcard_origin,
     allow_methods=["GET", "POST", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization", "Accept"],
+    allow_headers=["*"] if is_wildcard_origin else ["Content-Type", "Authorization", "Accept"],
     expose_headers=["X-RateLimit-Limit", "X-RateLimit-Remaining"],
 )
 
@@ -87,6 +89,7 @@ setup_security(app)
 
 app.include_router(air_quality.router)
 app.include_router(assistant.router)
+app.include_router(assistant.direct_router)
 
 
 # --- Root Endpoints ---
