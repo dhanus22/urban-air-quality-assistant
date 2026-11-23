@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Smooth scroll that respects prefers-reduced-motion */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Universal high-contrast, accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid #0d9488;
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion safety */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Accessibility skip link styles */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0f766e;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  z-index: 9999;
+  text-decoration: none;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem;
+  outline: 3px solid #2dd4bf;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* AQI gauge animation keyframes */
+@keyframes aqiGaugeSweep {
+  from {
+    stroke-dashoffset: 283;
+  }
+  to {
+    stroke-dashoffset: var(--gauge-target-offset, 0);
+  }
+}
+
+.animate-gauge {
+  animation: aqiGaugeSweep 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-gauge {
+    animation: none;
+    stroke-dashoffset: var(--gauge-target-offset, 0);
+  }
+}
