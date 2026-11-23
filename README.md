@@ -11,7 +11,7 @@
 
 ---
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 Winter smog and urban air pollution are critical health hazards affecting millions of families worldwide. Many people lack access to:
 - **Real-time, localized air quality data** in an understandable format
@@ -23,34 +23,34 @@ Winter smog and urban air pollution are critical health hazards affecting millio
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-### 📊 Real-Time Air Quality Dashboard
+###  Real-Time Air Quality Dashboard
 - Live AQI data for any city worldwide (powered by WAQI/AQICN)
 - Visual gauge with color-coded severity levels
 - Individual pollutant breakdown (PM2.5, PM10, NO₂, O₃, SO₂, CO)
 - Weather conditions and health advisories
 - Geolocation support for automatic city detection
 
-### 💬 AI Chat Assistant
+###  AI Chat Assistant
 - Conversational interface powered by Google Gemini 2.5 Flash
 - Context-aware responses based on current local AQI
 - Quick-action prompts for common pollution questions
 - Personalized advice for families, children, elderly, and more
 
-### 📅 Low-Emission Daily Routines
+###  Low-Emission Daily Routines
 - AI-generated daily schedules tailored to your lifestyle
 - Emission impact ratings for each activity
 - Sustainable alternatives for high-emission habits
 - Health tips integrated into your routine
 
-### 🏠 Indoor Air Quality Hacks
+###  Indoor Air Quality Hacks
 - Room-specific improvement recommendations
 - Budget-conscious solutions (Low/Medium/High)
 - DIY step-by-step instructions
 - Effectiveness ratings for each hack
 
-### 📈 Impact Calculator
+###  Impact Calculator
 - Quantified CO₂ reduction from lifestyle changes
 - Health benefit analysis
 - Community-level impact visualization
@@ -58,7 +58,7 @@ Winter smog and urban air pollution are critical health hazards affecting millio
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 urban-air-quality-assistant/
@@ -94,7 +94,7 @@ urban-air-quality-assistant/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -151,7 +151,7 @@ The app will be available at `http://localhost:5173`.
 
 ---
 
-## 🧪 Running Tests
+##  Running Tests
 
 ### Backend Tests
 ```bash
@@ -168,7 +168,7 @@ npm run test:coverage
 
 ---
 
-## 🔒 Security Features
+##  Security Features
 
 | Feature | Implementation |
 |---------|---------------|
@@ -181,7 +181,7 @@ npm run test:coverage
 
 ---
 
-## ♿ Accessibility (WCAG 2.1 AA)
+##  Accessibility (WCAG 2.1 AA)
 
 - ✅ Semantic HTML5 elements (`<header>`, `<nav>`, `<main>`, `<footer>`)
 - ✅ ARIA landmarks and labels on all interactive elements
@@ -194,7 +194,7 @@ npm run test:coverage
 
 ---
 
-## 📡 API Reference
+##  API Reference
 
 ### Air Quality Endpoints
 
@@ -221,7 +221,7 @@ npm run test:coverage
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Frontend**: React 18, TypeScript 5.7, Vite 6, Tailwind CSS 3.4
 - **Backend**: Python 3.11, FastAPI 0.115, Pydantic 2.10
@@ -232,7 +232,7 @@ npm run test:coverage
 
 ---
 
-## 🏆 Hackathon Context
+##  Hackathon Context
 
 This project was built for **Virtual Prompt Wars by HackToSkill**, focusing on leveraging Generative AI to solve real-world environmental challenges.
 
@@ -246,12 +246,10 @@ This project was built for **Virtual Prompt Wars by HackToSkill**, focusing on l
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-<p align="center">
-  Built with 💚 for cleaner air and healthier communities
-</p>
+
